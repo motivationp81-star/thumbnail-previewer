@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thumbnail Previewer — See Your Thumbnail on YouTube Before You Publish</title>
+<meta name="description" content="Preview your YouTube thumbnail on the home page, in search results and on mobile — free, private, right in your browser.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>👀 Thumbnail Previewer</h1>
+  <p class="tagline">See how your thumbnail really looks on YouTube — <strong>before</strong> you publish.</p>
+</header>
+
+<main>
+  <section class="controls card">
+    <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Upload thumbnail image">
+      <p class="dz-big">Drop your thumbnail here, or click to choose</p>
+      <p class="dz-small">PNG or JPG, ideally 1280 × 720. Your image never leaves your device.</p>
+      <input type="file" id="fileInput" accept="image/*" hidden>
+    </div>
+
+    <div class="fields">
+      <label>Video title
+        <input type="text" id="titleInput" maxlength="100" value="My Awesome New Video — Watch Till the End!">
+      </label>
+      <label>Channel name
+        <input type="text" id="channelInput" maxlength="40" value="My Channel">
+      </label>
+      <label>Duration badge
+        <input type="text" id="durationInput" maxlength="8" value="4:27">
+      </label>
+      <label>Views • time text
+        <input type="text" id="metaInput" maxlength="50" value="128K views • 2 days ago">
+      </label>
+    </div>
+    <p class="hint">Tip: check the home grid first — that is how small your thumbnail looks next to everyone else's.</p>
+  </section>
+
+  <nav class="tabs" aria-label="Preview mode">
+    <button class="tab active" data-mode="home">🏠 Home (desktop)</button>
+    <button class="tab" data-mode="search">🔍 Search results</button>
+    <button class="tab" data-mode="mobile">📱 Mobile</button>
+  </nav>
+
+  <!-- HOME / DESKTOP GRID -->
+  <section id="view-home" class="yt-view">
+    <div class="yt-topbar"><span class="yt-logo">▶ YouTube</span><span class="yt-search">Search</span></div>
+    <div class="yt-grid" id="homeGrid"></div>
+  </section>
+
+  <!-- SEARCH RESULTS -->
+  <section id="view-search" class="yt-view" hidden>
+    <div class="yt-topbar"><span class="yt-logo">▶ YouTube</span><span class="yt-search" id="searchQuery">my awesome new video</span></div>
+    <div class="yt-rows" id="searchRows"></div>
+  </section>
+
+  <!-- MOBILE -->
+  <section id="view-mobile" class="yt-view" hidden>
+    <div class="phone">
+      <div class="phone-bar">▶ YouTube</div>
+      <div class="phone-feed" id="mobileFeed"></div>
+      <div class="phone-nav"><span>🏠</span><span>▶️</span><span>➕</span><span>🔔</span><span>👤</span></div>
+    </div>
+  </section>
+
+  <section class="card tiny-check">
+    <h2>🔬 The tiny-size test</h2>
+    <p>This is your thumbnail at sidebar size. If you can't tell what it shows here, viewers can't either.</p>
+    <div class="tiny-row">
+      <img id="tinyImg" alt="Your thumbnail at a very small size" width="168">
+      <img id="tinyImg2" alt="Your thumbnail at an even smaller size" width="94">
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Built with plain HTML, CSS and JavaScript. No uploads, no tracking — everything happens in your browser.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
